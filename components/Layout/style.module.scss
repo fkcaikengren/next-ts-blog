@@ -1,0 +1,30 @@
+@import 'styles/_variable.scss';
+@import 'styles/_mixin.scss';
+
+
+.layout{
+  height: 100%;
+  padding: 10px;
+  .left{
+    display: none;
+  }
+}
+
+@include breakpoint{
+  .layout{
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 $space-container;
+    @include flex($align: flex-start);
+    .left{
+      display: block;
+      width: 16%;
+    }
+    .top{
+      display: none;
+    }
+    .right{
+      width: 84%;
+    }
+  }
+}

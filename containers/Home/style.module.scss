@@ -1,0 +1,145 @@
+@import 'styles/_variable.scss';
+@import 'styles/_mixin.scss';
+
+
+
+
+.home{
+  @include flex($justify:space-between, $align:flex-start, $wrap:wrap);
+  .main{
+    width: 100%;
+    margin-top: $space-container;
+    padding: 20px;
+  }
+  .side{
+    width: 100%;
+    margin-top: $space-container;
+    .box{
+      margin-bottom: $space-container;
+      color: $color-font-gray;
+      .title{
+        padding: 10px 0 10px 20px;
+        color: $color-font-gray-light;
+      }
+      .list{
+        font-size: 15px;
+        padding:20px;
+        @include gray-border-light('top');
+      }
+      .item{
+        margin-top: 8px;
+        &:first-child{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+.segment{
+  width: 100%;
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+  color: $color-font-gray;
+  font-weight: 500;
+  &>span{
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+    background-color: #fff;
+  }
+  &::after{
+    content: '';
+    width: 100%;
+    @include gray-border('top');
+    position: absolute;
+    top: 48%;
+    left: 0;
+  }
+}
+
+.introduction{
+  padding: 20px 0;
+  @include flex($justify:space-between, $align:stretch);
+  position: relative;
+  .info{
+    width: 100%;
+    h1{
+      font-size: 18px;
+      font-weight: normal;
+    }
+    p{
+      font-size: 14px;
+      color: $color-font-gray;
+    }
+    .bar{
+      font-size: 12px;
+      margin-top: 16px;
+      @include flex($justify:flex-start);
+      color: $color-font-gray-light;
+      span{
+        margin-right: 16px;
+        padding-left: 5px;
+      }
+      .views{
+        display: none;
+      }
+    }
+  }
+  .cover{
+    width: 30%; 
+    min-width: 110px; 
+    max-width: 200px; 
+    margin: 50px 0 36px 24px;
+  }
+}
+
+@include breakpoint($minWidth:460px){
+  .introduction{
+    .info{
+      .bar{
+        .views{
+          display: block;
+        }
+      }
+    }
+    .cover{
+      margin: 0 0 0 30px;
+    }
+  }
+}
+
+
+@include breakpoint{
+  .home{
+    flex-wrap: nowrap;
+    .main{
+      margin-top: 0;
+      margin-left: $space-container;
+      padding: 28px;
+    }
+    .side{
+      margin-top: 0;
+      margin-left: $space-container;
+      width: 32%;
+      min-width: 180px;
+    }
+  }
+
+
+
+  .introduction{
+    .info{
+      h1{
+        font-size: 22px;
+        font-weight: normal;
+      }
+      p{
+        font-size: 15px;
+        color: $color-font-gray;
+      }
+    }
+  }
+}
+
+

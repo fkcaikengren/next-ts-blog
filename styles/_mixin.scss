@@ -1,0 +1,34 @@
+
+@import './variable.scss';
+
+@mixin breakpoint($minWidth: 900px) {
+  @media (min-width: $minWidth){
+    @content;
+  }
+};
+
+
+// layout
+@mixin flex($direction:row, $justify:center, $align:center, $wrap:nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// border
+@mixin gray-border($position:'', $width:1px) {
+  @if $position  {
+    border-#{$position}: $width solid $color-border-gray;
+  } @else{
+    border: $width solid $color-border-gray;
+  }
+}
+@mixin gray-border-light($position:'', $width:1px) {
+  @if $position  {
+    border-#{$position}: $width solid $color-border-gray-light;
+  } @else{
+    border: $width solid $color-border-gray-light;
+  }
+}
