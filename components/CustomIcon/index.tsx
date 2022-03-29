@@ -5,11 +5,15 @@ interface CustomIconProps {
 	name: string
 	size?: number
 	color?: string
+	marginLeft?: number
+	marginRight?: number
 	style?: CSSProperties
 }
 interface IProps {
 	size?: number
 	color?: string
+	marginLeft?: number
+	marginRight?: number
 	style?: CSSProperties
 }
 
@@ -17,12 +21,20 @@ const CustomIcon: FC<CustomIconProps> = ({
 	name,
 	size = 18,
 	color = '#aaa',
+	marginLeft = 0,
+	marginRight = 0,
 	style = {},
 }) => {
 	return (
 		<i
 			className={classNames('iconfont', name)}
-			style={{ ...style, fontSize: `${size}px`, color }}
+			style={{
+				...style,
+				fontSize: `${size}px`,
+				marginLeft: `${marginLeft}px`,
+				marginRight: `${marginRight}px`,
+				color,
+			}}
 		/>
 	)
 }
@@ -40,15 +52,19 @@ export const MiniProgramIcon: FC<IProps> = props => (
 )
 
 export const CategoryIcon: FC<IProps> = props => (
-	<CustomIcon name="icon-fenlei" {...props} />
+	<CustomIcon name="icon-fenleifenji" {...props} />
 )
 
 export const EyeIcon: FC<IProps> = props => (
 	<CustomIcon name="icon-kanguo" {...props} />
 )
 
-export const LoveIcon: FC<IProps> = props => (
+export const LoveLineIcon: FC<IProps> = props => (
 	<CustomIcon name="icon-xihuan" {...props} />
+)
+
+export const LoveSolidIcon: FC<IProps> = props => (
+	<CustomIcon name="icon-aixin" {...props} />
 )
 
 export const CalendarIcon: FC<IProps> = props => (

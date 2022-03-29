@@ -1,0 +1,7 @@
+
+@import './_variable.scss';
+:export {
+  primaryColor: $color-primary;
+  btnPrefixCls: $btn-prefix-cls;
+  spinPrefixCls: $spin-prefix-cls;
+}

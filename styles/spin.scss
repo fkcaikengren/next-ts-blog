@@ -1,0 +1,86 @@
+
+@import './_mixin.scss';
+@import './_variable.scss';
+
+// 3 5 7 - 40 54 64 
+// 2 4 6 - 40 54 64 
+
+
+
+// 参考：https://loading.io/css/
+
+
+@mixin spin-small {
+  width: 20px;
+  height: 20px;
+}
+
+@mixin spin-medium {
+  width: 26px;
+  height: 26px;
+}
+
+
+@mixin spin-large {
+  width: 50px;
+  height: 50px;
+}
+
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+.lds-ring-small{
+  @include spin-small;
+  div {
+    @include spin-small;
+    border: 1px solid #fff;
+  }
+}
+
+.lds-ring-medium{
+ @include spin-medium;
+ div {
+  @include spin-medium;
+  border: 2px solid #fff;
+ }
+}
+
+.lds-ring-large{
+ @include spin-large;
+ div {
+  @include spin-large;
+  border: 3px solid #fff;
+ }
+}
+
+
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

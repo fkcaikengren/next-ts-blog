@@ -12,7 +12,7 @@ export interface RoundListProps {
 	listClass?: string
 	itemClass?: string
 	data: {
-		title: LinkItem
+		title: Omit<LinkItem, 'link'>
 		list: LinkItem[]
 	}
 }
@@ -28,7 +28,8 @@ const RoundList: RoundListType = ({
 	listClass = '',
 	itemClass = '',
 }) => {
-	const { title, list } = data
+	const { title, list } = data || {}
+	if (!title || !Array.isArray(list)) return null
 	return (
 		<RoundContainer className={className}>
 			<div>

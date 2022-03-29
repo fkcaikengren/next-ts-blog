@@ -1,37 +1,42 @@
 import React, { FC, useMemo } from 'react'
 import RspImage from 'components/RspImage'
-import { CalendarIcon, EyeIcon } from 'components/CustomIcon'
-import style from './style.module.scss'
+import {
+	CategoryIcon,
+	CalendarIcon,
+	EyeIcon,
+	LoveLineIcon,
+	LoveSolidIcon,
+} from 'components/CustomIcon'
+import style from '../style.module.scss'
 interface IProps {
 	title: string
-	paragraph: string
+	summary: string
 	category: string
-	timestamp: number
+	updateDate: number
 	views: number
 }
 const Introduction: FC<IProps> = props => {
-	const { title, paragraph = '', category, timestamp, views } = props
+	const { title, summary = '', category, updateDate, views } = props
 
 	const content = useMemo(() => {
-		if (paragraph.length > 65) {
-			return paragraph.substr(0, 65) + '[...]'
+		if (summary.length > 65) {
+			return summary.substr(0, 65) + '[...]'
 		} else {
-			return paragraph
+			return summary
 		}
-	}, [paragraph])
+	}, [summary])
 	return (
 		<div className={style.introduction}>
 			<div className={style.info}>
 				<h1>{title}</h1>
 				<p>{content}</p>
 				<div className={style.bar}>
-					<span>心情随笔</span>
+					<CategoryIcon size={14} />
+					<span>{category}</span>
 					<CalendarIcon size={14} />
-					<span>2020-01-02</span>
-					<div className={style.views}>
-						<EyeIcon size={14} />
-						<span>1990</span>
-					</div>
+					<span>{updateDate}</span>
+					<EyeIcon size={14} />
+					<span>{views}</span>
 				</div>
 			</div>
 			<RspImage

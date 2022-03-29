@@ -2,39 +2,6 @@
 @import 'styles/_mixin.scss';
 
 
-
-
-.home{
-  @include flex($justify:space-between, $align:flex-start, $wrap:wrap);
-  .main{
-    width: 100%;
-    margin-top: $space-container;
-    padding: 20px;
-  }
-  .side{
-    width: 100%;
-    margin-top: $space-container;
-    .box{
-      margin-bottom: $space-container;
-      color: $color-font-gray;
-      .title{
-        padding: 10px 0 10px 20px;
-        color: $color-font-gray-light;
-      }
-      .list{
-        font-size: 15px;
-        padding:20px;
-        @include gray-border-light('top');
-      }
-      .item{
-        margin-top: 8px;
-        &:first-child{
-          margin-top: 0;
-        }
-      }
-    }
-  }
-}
 .segment{
   width: 100%;
   position: relative;
@@ -77,13 +44,21 @@
       margin-top: 16px;
       @include flex($justify:flex-start);
       color: $color-font-gray-light;
-      span{
-        margin-right: 16px;
-        padding-left: 5px;
+      &>span{
+        margin-right: 4px;
+        &:not(:nth-of-type(1))::before{
+          content: '|';
+          margin-right: 4px;
+          position: relative;
+          top: -1px;
+        }
       }
-      .views{
+      
+      &>i{
         display: none;
       }
+     
+      
     }
   }
   .cover{
@@ -94,13 +69,23 @@
   }
 }
 
-@include breakpoint($minWidth:460px){
+
+
+@include breakpoint($minWidth:470px){
   .introduction{
     .info{
       .bar{
-        .views{
-          display: block;
+        &>span {
+          padding-left: 5px;
+          margin-right: 16px;
+          &:not(:nth-of-type(1))::before{
+            content: none;
+          }
         }
+        &>i {
+          display: inline;
+        }
+        
       }
     }
     .cover{
@@ -111,23 +96,6 @@
 
 
 @include breakpoint{
-  .home{
-    flex-wrap: nowrap;
-    .main{
-      margin-top: 0;
-      margin-left: $space-container;
-      padding: 28px;
-    }
-    .side{
-      margin-top: 0;
-      margin-left: $space-container;
-      width: 32%;
-      min-width: 180px;
-    }
-  }
-
-
-
   .introduction{
     .info{
       h1{

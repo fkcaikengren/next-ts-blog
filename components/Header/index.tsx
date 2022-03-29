@@ -10,7 +10,15 @@ const data = [
 		link: '/',
 	},
 	{
-		text: '分类',
+		text: '归档',
+		link: '/',
+	},
+	{
+		text: '关于',
+		link: '/',
+	},
+	{
+		text: '搜索',
 		link: '/',
 	},
 ]

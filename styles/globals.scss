@@ -1,6 +1,7 @@
 @import './_variable.scss';
 @import './_mixin.scss';
 
+
 html,
 body {
     margin: 0;
@@ -44,23 +45,31 @@ p{
 button{
     border: none;
 }
-.btn{
-    font-size: 16px;
-    font-weight: 600;
-    color: $color-main;
-    border-radius: 4px;
-    padding: 10px 30px;
+.wrapper{
+    @include flex($justify:space-between, $align:flex-start, $wrap:wrap);
+}
+.main{
+    width: 100%;
+    margin-top: $space-container;
+    padding: 20px;
+}
+@include breakpoint{
+    .wrapper{
+        flex-wrap: nowrap;
+    }
+    .main{
+        margin-top: 0;
+        margin-left: $space-container;
+        padding: 28px;
+    }
 }
 
-.primary-btn{
-    background-color: $color-main;
-}
 
-.primary-btn:hover{
-    background-color: $color-main-active;
-}
 
-.primary-btn.btn{
-    color: #fff;
-}
+
+@import './iconfont.css';
+@import './button.scss';
+@import './spin.scss';
+@import './markdown.scss';
+@import 'highlight.js/styles/gradient-dark.css';
 

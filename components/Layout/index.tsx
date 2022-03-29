@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import Header from 'components/Header'
-import Affix from 'components/Affix'
+import Affix from 'components/common/affix'
 import style from './style.module.scss'
 
 type IProps = { title?: string; container?: boolean; children?: object }
